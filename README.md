@@ -1,15 +1,17 @@
 
-<!-- README.md is generated from README.Rmd. Please edit README.Rmd -->
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # nmfspalette <a href={https:://nmfs-ost.github.io/nmfspalette}><img src="man/figures/logo.png" alt="logo with an image of a fish in multiple palette colors" align="right" width="139" height="139"/>
 
-An R color palette for `{ggplot2}` using NOAA Fisheries branding colors
+<!-- badges: start -->
 
 [![call-r-cmd-check](https://github.com/nmfs-ost/nmfspalette/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-ost/nmfspalette/actions/workflows/call-r-cmd-check.yml)
 
 [![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/nmfs-ost/nmfspalette/refs/heads/badges/coverage-badge.json)](https://github.com/nmfs-ost/nmfspalette/tree/badges)
 
-------------------------------------------------------------------------
+<!-- badges: end -->
+
+An R color palette for `{ggplot2}` using NOAA Fisheries branding colors
 
 `{nmfspalette}` implements these
 [steps](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2)
@@ -19,19 +21,12 @@ branding](https://drive.google.com/file/d/1lXHmfGWCj6pI_Dr3C-Dwcnf1pXOIOztp/view
 
 ## Installation
 
-To install from GitHub use the following:
+You can install the development version of nmfspalette from
+[GitHub](https://github.com/) with:
 
 ``` r
-remotes::install_github("nmfs-ost/nmfspalette")
-#> 
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/tmp/RtmpXZINjj/remotesa7157289d20f/nmfs-ost-nmfspalette-b2a1e93/DESCRIPTION’ ... OK
-#> * preparing ‘nmfspalette’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> Omitted ‘LazyData’ from DESCRIPTION
-#> * building ‘nmfspalette_3.0.0.000.tar.gz’
+# install.packages("pak")
+pak::pak("nmfs-ost/nmfspalette")
 ```
 
 To load the package, use:
@@ -78,7 +73,7 @@ These palettes contain 4 or 6 colors.
 nmfspalette::display_nmfs_palette("oceans", 6)
 ```
 
-![](man/figures/displ_oceans-1.png)<!-- -->
+<img src="man/figures/README-displ_oceans-1.png" width="100%" />
 
 #### waves
 
@@ -86,7 +81,7 @@ nmfspalette::display_nmfs_palette("oceans", 6)
 nmfspalette::display_nmfs_palette("waves", 4)
 ```
 
-![](man/figures/displ_waves-1.png)<!-- -->
+<img src="man/figures/README-displ_waves-1.png" width="100%" />
 
 #### seagrass
 
@@ -94,7 +89,7 @@ nmfspalette::display_nmfs_palette("waves", 4)
 nmfspalette::display_nmfs_palette("seagrass", 4)
 ```
 
-![](man/figures/displ_seagrass-1.png)<!-- -->
+<img src="man/figures/README-displ_seagrass-1.png" width="100%" />
 
 #### urchin
 
@@ -102,7 +97,7 @@ nmfspalette::display_nmfs_palette("seagrass", 4)
 nmfspalette::display_nmfs_palette("urchin", 4)
 ```
 
-![](man/figures/displ_urchin-1.png)<!-- -->
+<img src="man/figures/README-displ_urchin-1.png" width="100%" />
 
 #### crustacean
 
@@ -110,7 +105,7 @@ nmfspalette::display_nmfs_palette("urchin", 4)
 nmfspalette::display_nmfs_palette("crustacean", 4)
 ```
 
-![](man/figures/displ_crustacean-1.png)<!-- -->
+<img src="man/figures/README-displ_crustacean-1.png" width="100%" />
 
 #### coral
 
@@ -118,7 +113,7 @@ nmfspalette::display_nmfs_palette("crustacean", 4)
 nmfspalette::display_nmfs_palette("coral", 4)
 ```
 
-![](man/figures/displ_coral-1.png)<!-- -->
+<img src="man/figures/README-displ_coral-1.png" width="100%" />
 
 #### regional (discrete)
 
@@ -126,7 +121,7 @@ nmfspalette::display_nmfs_palette("coral", 4)
 nmfspalette::display_nmfs_palette("regional", 6)
 ```
 
-![](man/figures/displ_regional_web-1.png)<!-- -->
+<img src="man/figures/README-displ_regional_web-1.png" width="100%" />
 
 ##### Alternative regional palettes
 
@@ -142,13 +137,13 @@ as opposed to alternative palette 2.
 nmfspalette::display_nmfs_palette("regional_alt1", 6)
 ```
 
-![](man/figures/displ_regional_web2-1.png)<!-- -->
+<img src="man/figures/README-displ_regional_web2-1.png" width="100%" />
 
 ``` r
 nmfspalette::display_nmfs_palette("regional_alt2", 6)
 ```
 
-![](man/figures/displ_regional_web3-1.png)<!-- -->
+<img src="man/figures/README-displ_regional_web3-1.png" width="100%" />
 
 ### NOAA Fisheries complementary colors
 
@@ -168,7 +163,7 @@ These palettes contain 4 colors.
 nmfspalette::display_nmfs_palette("background_sky", 4)
 ```
 
-![](man/figures/displ_background_sky-1.png)<!-- -->
+<img src="man/figures/README-displ_background_sky-1.png" width="100%" />
 
 #### background green
 
@@ -176,7 +171,7 @@ nmfspalette::display_nmfs_palette("background_sky", 4)
 nmfspalette::display_nmfs_palette("background_green", 4)
 ```
 
-![](man/figures/displ_background_green-1.png)<!-- -->
+<img src="man/figures/README-displ_background_green-1.png" width="100%" />
 
 #### background gray
 
@@ -184,7 +179,7 @@ nmfspalette::display_nmfs_palette("background_green", 4)
 nmfspalette::display_nmfs_palette("background_gray", 4)
 ```
 
-![](man/figures/displ_background_gray-1.png)<!-- -->
+<img src="man/figures/README-displ_background_gray-1.png" width="100%" />
 
 ### NOAA core colors (Fisheries version)
 
@@ -194,7 +189,7 @@ This palette contains 11 colors.
 nmfspalette::display_nmfs_palette("core", 11)
 ```
 
-![](man/figures/displ_core-1.png)<!-- -->
+<img src="man/figures/README-displ_core-1.png" width="100%" />
 
 ### NOAA alert colors
 
@@ -206,7 +201,7 @@ These palettes contain 4 colors.
 nmfspalette::display_nmfs_palette("alert_red", 4)
 ```
 
-![](man/figures/displ_alert_red-1.png)<!-- -->
+<img src="man/figures/README-displ_alert_red-1.png" width="100%" />
 
 #### alert orange
 
@@ -214,7 +209,7 @@ nmfspalette::display_nmfs_palette("alert_red", 4)
 nmfspalette::display_nmfs_palette("alert_orange", 4)
 ```
 
-![](man/figures/displ_alert_orange-1.png)<!-- -->
+<img src="man/figures/README-displ_alert_orange-1.png" width="100%" />
 
 #### alert yellow
 
@@ -222,7 +217,7 @@ nmfspalette::display_nmfs_palette("alert_orange", 4)
 nmfspalette::display_nmfs_palette("alert_yellow", 4)
 ```
 
-![](man/figures/displ_alert_yellow-1.png)<!-- -->
+<img src="man/figures/README-displ_alert_yellow-1.png" width="100%" />
 
 #### alert green
 
@@ -230,7 +225,7 @@ nmfspalette::display_nmfs_palette("alert_yellow", 4)
 nmfspalette::display_nmfs_palette("alert_green", 4)
 ```
 
-![](man/figures/displ_alert_green-1.png)<!-- -->
+<img src="man/figures/README-displ_alert_green-1.png" width="100%" />
 
 ## Examples
 
@@ -256,13 +251,14 @@ To use the palettes with `{ggplot2}`, the `scale_color_nmfs()` and
 `scale_color_nmfs()`, a default (“oceans”) is used:
 
 ``` r
+library(ggplot2)
 p <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
   geom_point(size = 4) +
   scale_color_nmfs()
 p
 ```
 
-![](man/figures/default_plot-1.png)<!-- -->
+<img src="man/figures/README-default_plot-1.png" width="100%" />
 
 `scale_fill_nmfs()` does not have a default and therefore requires a
 named argument, this is an example using the “crustacean” palette:
@@ -273,7 +269,7 @@ ggplot(faithfuld, aes(waiting, eruptions)) +
   scale_fill_nmfs(palette = "crustacean", discrete = FALSE, reverse = TRUE)
 ```
 
-![](man/figures/scale_fill_example-1.png)<!-- -->
+<img src="man/figures/README-scale_fill_example-1.png" width="100%" />
 
 ------------------------------------------------------------------------
 
