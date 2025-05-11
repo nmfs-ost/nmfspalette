@@ -25,7 +25,9 @@ Suggests:
     xaringanthemer
 VignetteBuilder: 
     knitr
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    vdiffr
+>>>>>>> 1db105f (various fixes for R CMD Check)
 Config/Needs/website: rsconnect, xaringan
 Encoding: UTF-8
 LazyData: true
