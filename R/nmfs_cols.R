@@ -304,7 +304,6 @@ nmfs_palettes <- list(
     "dove_gray",
     "gull_white"
   ),
->>>>>>> d8b983c (ensure code does not exceed 80 character width)
   `alert_red` = nmfs_cols("dark_red", "red", "vivid_red", "bright_red"),
   `alert_orange` = nmfs_cols(
     "dark_orange",
