@@ -47,8 +47,8 @@ scale_color_nmfs <- function(
 #'            `discrete` is TRUE or FALSE.
 #' @examples
 #' library(ggplot2)
-#' ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
-#'   geom_bar() +
+#' ggplot(mpg, aes(x = hwy, y = cty, fill = cyl)) +
+#'   geom_point(shape = 21) +
 #'   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
 #'   scale_fill_nmfs(palette = "crustacean", discrete = FALSE)
 #' @export
