@@ -12,6 +12,8 @@ Authors@R: c(
 Description: This is a package that implements a color palette in line
     with the NOAA Fisheries Branding Guide.
 License: GPL-3 | file LICENSE
+URL: https://github.com/nmfs-ost/nmfspalette
+BugReports: https://github.com/nmfs-ost/nmfspalette/issues
 Imports: 
     ggplot2
 Suggests: 
@@ -27,10 +29,8 @@ Suggests:
 VignetteBuilder: 
     knitr
 Config/Needs/website: rsconnect, xaringan
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://github.com/nmfs-ost/nmfspalette
-BugReports: https://github.com/nmfs-ost/nmfspalette/issues
-Config/testthat/edition: 3

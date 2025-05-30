@@ -20,7 +20,7 @@ plot_scale_color_nmfs <- function(palette_name = NULL) {
 plot_scale_fill_nmfs <- function(palette_name = NULL) {
   # Fill by discrete variable with different palette + remove legend (guide)
   p <- ggplot(mpg, aes(x = hwy, y = cty, fill = cyl)) +
-       geom_point(shape = 21) +
+    geom_point(shape = 21) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
     scale_fill_nmfs(palette = palette_name, discrete = FALSE)
   return(p)
