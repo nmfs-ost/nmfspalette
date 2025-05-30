@@ -16,11 +16,10 @@
 #'   scale_color_nmfs("coral")
 #' @export
 scale_color_nmfs <- function(
-  palette = "oceans",
-  discrete = TRUE,
-  reverse = FALSE,
-  ...
-) {
+    palette = "oceans",
+    discrete = TRUE,
+    reverse = FALSE,
+    ...) {
   pal <- nmfs_palette(palette = palette, reverse = reverse)
 
   if (discrete) {
@@ -53,11 +52,10 @@ scale_color_nmfs <- function(
 #'   scale_fill_nmfs(palette = "crustacean", discrete = FALSE)
 #' @export
 scale_fill_nmfs <- function(
-  palette = "oceans",
-  discrete = TRUE,
-  reverse = FALSE,
-  ...
-) {
+    palette = "oceans",
+    discrete = TRUE,
+    reverse = FALSE,
+    ...) {
   pal <- nmfs_palette(palette = palette, reverse = reverse)
 
   if (discrete) {

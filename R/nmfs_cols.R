@@ -234,7 +234,7 @@ nmfs_palettes <- list(
     "midatlantic",
     "alaska",
     "pacificislands"
-    ),
+  ),
   `regional_alt2` = nmfs_cols(
     "alt_reg_1",
     "alt_reg_2",
@@ -242,7 +242,7 @@ nmfs_palettes <- list(
     "alt_reg_4",
     "alaska",
     "pacificislands"
-    ),
+  ),
   `complement_teal` = nmfs_cols(
     "dark_teal",
     "fisheries_teal",
