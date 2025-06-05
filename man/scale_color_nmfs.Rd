@@ -26,9 +26,10 @@ Default is FALSE.}
 objects should interpolated from palettes, with the alternative that only the
 defined colors in the palette are used. Default is TRUE.}
 
-\item{...}{Additional arguments passed to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} or
-\code{\link[ggplot2:scale_gradient]{ggplot2::scale_color_gradientn()}}, used respectively when
-\code{discrete} is TRUE or FALSE.}
+\item{...}{Additional arguments passed to: \code{\link[ggplot2:scale_gradient]{ggplot2::scale_color_gradientn()}}
+when \code{discrete} is TRUE; \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} when \code{discrete} is FALSE
+and \code{interpolate} is TRUE; and \code{\link[ggplot2:scale_manual]{ggplot2::scale_color_manual()}} when \code{discrete}
+is FALSE and \code{interpolate} is FALSE.}
 }
 \description{
 Color scale constructor for nmfs colors
@@ -39,4 +40,9 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
   geom_point(size = 4) +
   scale_color_nmfs("coral")
 
+ggplot(mtcars, aes(mpg, disp, color = as.factor(gear))) +
+  geom_point(size = 4) +
+  scale_color_nmfs("regional",
+                   interpolate = FALSE,
+                   discrete = TRUE)
 }
