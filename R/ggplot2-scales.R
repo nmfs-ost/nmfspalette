@@ -44,8 +44,10 @@ scale_color_nmfs <- function(
       )
     } else {
       cli::cli_alert_info("The {palette} palette has {pal_length} colors.")
-      cli::cli_alert_info("An error will occur if there are too few palette colors for your plot.")
-      cli::cli_alert_info("To avoid this error, use a larger palette or `interpolate = TRUE`.")
+      rlang::warn(message = "An error will occur if there are too few palette colors for your plot.
+To avoid this error, use a larger palette or `interpolate = TRUE`.",
+                 .frequency = "once",
+                 .frequency_id = "too_few_colors_warning_color")
       ggplot2::scale_color_manual(
         values = nmfs_palette(palette)(pal_length),
         ...)
@@ -93,8 +95,10 @@ scale_fill_nmfs <- function(
       )
     } else {
       cli::cli_alert_info("The {palette} palette has {pal_length} colors.")
-      cli::cli_alert_info("An error will occur if there are too few palette colors for your plot.")
-      cli::cli_alert_info("To avoid this error, use a larger palette or `interpolate = TRUE`.")
+      rlang::warn(message = "An error will occur if there are too few palette colors for your plot.
+To avoid this error, use a larger palette or `interpolate = TRUE`.",
+                  .frequency = "once",
+                  .frequency_id = "too_few_colors_warning_fill")
       ggplot2::scale_fill_manual(
         values = nmfs_palette(palette)(pal_length),
         ...)
