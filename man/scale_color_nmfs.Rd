@@ -43,6 +43,7 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 ggplot(mtcars, aes(mpg, disp, color = as.factor(gear))) +
   geom_point(size = 4) +
   scale_color_nmfs("regional",
-                   interpolate = FALSE,
-                   discrete = TRUE)
+    interpolate = FALSE,
+    discrete = TRUE
+  )
 }

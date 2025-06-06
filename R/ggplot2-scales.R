@@ -22,8 +22,9 @@
 #' ggplot(mtcars, aes(mpg, disp, color = as.factor(gear))) +
 #'   geom_point(size = 4) +
 #'   scale_color_nmfs("regional",
-#'                    interpolate = FALSE,
-#'                    discrete = TRUE)
+#'     interpolate = FALSE,
+#'     discrete = TRUE
+#'   )
 #' @export
 scale_color_nmfs <- function(
     palette = "oceans",
@@ -36,7 +37,7 @@ scale_color_nmfs <- function(
   pal_length <- length(nmfs_palettes[[palette]])
 
   if (discrete) {
-    if (interpolate){
+    if (interpolate) {
       ggplot2::discrete_scale(
         aesthetics = "colour",
         palette = pal,
@@ -44,13 +45,16 @@ scale_color_nmfs <- function(
       )
     } else {
       cli::cli_alert_info("The {palette} palette has {pal_length} colors.")
-      rlang::warn(message = "An error will occur if there are too few palette colors for your plot.
+      rlang::warn(
+        message = "An error will occur if there are too few palette colors for your plot.
 To avoid this error, use a larger palette or `interpolate = TRUE`.",
-                 .frequency = "once",
-                 .frequency_id = "too_few_colors_warning_color")
+        .frequency = "once",
+        .frequency_id = "too_few_colors_warning_color"
+      )
       ggplot2::scale_color_manual(
         values = nmfs_palette(palette)(pal_length),
-        ...)
+        ...
+      )
     }
   } else {
     ggplot2::scale_color_gradientn(colours = pal(256), ...)
@@ -73,8 +77,9 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
 #' ggplot(mtcars, aes(mpg, disp, color = as.factor(gear))) +
 #'   geom_point(size = 4) +
 #'   scale_fill_nmfs("regional",
-#'                    interpolate = FALSE,
-#'                    discrete = TRUE)
+#'     interpolate = FALSE,
+#'     discrete = TRUE
+#'   )
 #' @export
 scale_fill_nmfs <- function(
     palette = "oceans",
@@ -87,7 +92,7 @@ scale_fill_nmfs <- function(
   pal_length <- length(nmfs_palettes[[palette]])
 
   if (discrete) {
-    if (interpolate){
+    if (interpolate) {
       ggplot2::discrete_scale(
         aesthetics = "fill",
         palette = pal,
@@ -95,13 +100,16 @@ scale_fill_nmfs <- function(
       )
     } else {
       cli::cli_alert_info("The {palette} palette has {pal_length} colors.")
-      rlang::warn(message = "An error will occur if there are too few palette colors for your plot.
+      rlang::warn(
+        message = "An error will occur if there are too few palette colors for your plot.
 To avoid this error, use a larger palette or `interpolate = TRUE`.",
-                  .frequency = "once",
-                  .frequency_id = "too_few_colors_warning_fill")
+        .frequency = "once",
+        .frequency_id = "too_few_colors_warning_fill"
+      )
       ggplot2::scale_fill_manual(
         values = nmfs_palette(palette)(pal_length),
-        ...)
+        ...
+      )
     }
   } else {
     ggplot2::scale_fill_gradientn(colours = pal(256), ...)
