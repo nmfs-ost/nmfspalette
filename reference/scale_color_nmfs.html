@@ -143,8 +143,9 @@ is FALSE and <code>interpolate</code> is FALSE.</p></dd>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">disp</span>, color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">gear</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">scale_color_nmfs</span><span class="op">(</span><span class="st">"regional"</span>,</span></span>
-<span class="r-in"><span>                   interpolate <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>                   discrete <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    interpolate <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>    discrete <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The regional palette has 6 colors.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>An error will occur if there are too few palette colors for your plot.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> To avoid this error, use a larger palette or `interpolate = TRUE`.</span>
