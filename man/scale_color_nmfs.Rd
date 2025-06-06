@@ -4,7 +4,13 @@
 \alias{scale_color_nmfs}
 \title{Color scale constructor for nmfs colors}
 \usage{
-scale_color_nmfs(palette = "oceans", discrete = TRUE, reverse = FALSE, ...)
+scale_color_nmfs(
+  palette = "oceans",
+  discrete = TRUE,
+  reverse = FALSE,
+  interpolate = TRUE,
+  ...
+)
 }
 \arguments{
 \item{palette}{Character name of palette in \code{nmfs_palettes}. Default value
@@ -16,9 +22,14 @@ Default is TRUE.}
 \item{reverse}{Boolean indicating whether the palette should be reversed.
 Default is FALSE.}
 
-\item{...}{Additional arguments passed to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} or
-\code{\link[ggplot2:scale_gradient]{ggplot2::scale_color_gradientn()}}, used respectively when
-\code{discrete} is TRUE or FALSE.}
+\item{interpolate}{Boolean indicating whether the colors assigned to plot
+objects should interpolated from palettes, with the alternative that only the
+defined colors in the palette are used. Default is TRUE.}
+
+\item{...}{Additional arguments passed to: \code{\link[ggplot2:scale_gradient]{ggplot2::scale_color_gradientn()}}
+when \code{discrete} is TRUE; \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} when \code{discrete} is FALSE
+and \code{interpolate} is TRUE; and \code{\link[ggplot2:scale_manual]{ggplot2::scale_color_manual()}} when \code{discrete}
+is FALSE and \code{interpolate} is FALSE.}
 }
 \description{
 Color scale constructor for nmfs colors
@@ -28,4 +39,10 @@ library(ggplot2)
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
   geom_point(size = 4) +
   scale_color_nmfs("coral")
+
+ggplot(mtcars, aes(mpg, disp, color = as.factor(gear))) +
+  geom_point(size = 4) +
+  scale_color_nmfs("regional",
+                   interpolate = FALSE,
+                   discrete = TRUE)
 }

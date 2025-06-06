@@ -15,7 +15,9 @@ License: GPL-3 | file LICENSE
 URL: https://github.com/nmfs-ost/nmfspalette
 BugReports: https://github.com/nmfs-ost/nmfspalette/issues
 Imports: 
-    ggplot2
+    cli,
+    ggplot2,
+    rlang
 Suggests: 
     dichromat,
     dplyr,
