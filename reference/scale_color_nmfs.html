@@ -90,7 +90,13 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">scale_color_nmfs</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"oceans"</span>, discrete <span class="op">=</span> <span class="cn">TRUE</span>, reverse <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">scale_color_nmfs</span><span class="op">(</span></span>
+<span>  palette <span class="op">=</span> <span class="st">"oceans"</span>,</span>
+<span>  discrete <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  reverse <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  interpolate <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -112,10 +118,17 @@ Default is TRUE.</p></dd>
 Default is FALSE.</p></dd>
 
 
+<dt id="arg-interpolate">interpolate<a class="anchor" aria-label="anchor" href="#arg-interpolate"></a></dt>
+<dd><p>Boolean indicating whether the colors assigned to plot
+objects should interpolated from palettes, with the alternative that only the
+defined colors in the palette are used. Default is TRUE.</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments passed to <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code> or
-<code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">ggplot2::scale_color_gradientn()</a></code>, used respectively when
-<code>discrete</code> is TRUE or FALSE.</p></dd>
+<dd><p>Additional arguments passed to: <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">ggplot2::scale_color_gradientn()</a></code>
+when <code>discrete</code> is TRUE; <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code> when <code>discrete</code> is FALSE
+and <code>interpolate</code> is TRUE; and <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">ggplot2::scale_color_manual()</a></code> when <code>discrete</code>
+is FALSE and <code>interpolate</code> is FALSE.</p></dd>
 
 </dl></div>
 
@@ -126,6 +139,17 @@ Default is FALSE.</p></dd>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">scale_color_nmfs</span><span class="op">(</span><span class="st">"coral"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="scale_color_nmfs-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">disp</span>, color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">gear</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">scale_color_nmfs</span><span class="op">(</span><span class="st">"regional"</span>,</span></span>
+<span class="r-in"><span>                   interpolate <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>                   discrete <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The regional palette has 6 colors.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>An error will occur if there are too few palette colors for your plot.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> To avoid this error, use a larger palette or `interpolate = TRUE`.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">This warning is displayed once per session.</span></span>
+<span class="r-plt img"><img src="scale_color_nmfs-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </div>
