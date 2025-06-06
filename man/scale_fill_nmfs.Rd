@@ -44,6 +44,7 @@ ggplot(mpg, aes(x = hwy, y = cty, fill = cyl)) +
 ggplot(mtcars, aes(mpg, disp, color = as.factor(gear))) +
   geom_point(size = 4) +
   scale_fill_nmfs("regional",
-                   interpolate = FALSE,
-                   discrete = TRUE)
+    interpolate = FALSE,
+    discrete = TRUE
+  )
 }
