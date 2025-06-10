@@ -1,6 +1,6 @@
 Package: nmfspalette
 Title: A Color Palette for NOAA Fisheries
-Version: 3.0.0.000
+Version: 3.2.0.000
 Authors@R: c(
     person("Christine", "Stawitz", , "christine.stawitz@noaa.gov", role = "aut"),
     person("Bai", "Li", , "bai.li@noaa.gov", role = "aut"),
