@@ -22,3 +22,10 @@
       Error in `interpolate()`:
       ! need at least two non-NA values to interpolate
 
+# display_nmfs_palette() works
+
+    Code
+      urchin_palette
+    Output
+      NULL
+

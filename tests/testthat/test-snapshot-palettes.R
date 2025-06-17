@@ -21,3 +21,15 @@ test_that("nmfs_palette() fails", {
     nmfs_palette("foo")
   )
 })
+
+test_that("display_nmfs_palette() works", {
+  # Check that display_nmfs_palette returns a function
+  urchin_palette <- display_nmfs_palette("urchin", 4)
+
+  expect_type(urchin_palette, "NULL")
+
+  # Check that display_nmfs_palette() returns a snapshot
+  expect_snapshot(
+    urchin_palette
+  )
+})

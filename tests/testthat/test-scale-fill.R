@@ -1,3 +1,4 @@
+# keep skip_on_cran and skip_on_ci because vdiffr functions are sensitive
 test_that("nmfs_cols creates a valid plot", {
   skip_on_cran()
   skip_on_ci()
@@ -56,5 +57,18 @@ test_that("scale_fill works with discrete = TRUE and interpolate = FALSE", {
   expect_s3_class(
     object = scale_color_nmfs(discrete = FALSE),
     class = "ScaleContinuous"
+  )
+})
+
+test_that("warning triggered if palette is too small to use", {
+
+  expect_warning(
+    ggplot(mpg, aes(x = model, y = displ, color = manufacturer)) +
+      geom_point() +
+      scale_color_nmfs(
+        palette = "oceans",
+        discrete = TRUE,
+        interpolate = FALSE
+      )
   )
 })
