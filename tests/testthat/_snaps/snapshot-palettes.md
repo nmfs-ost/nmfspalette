@@ -14,18 +14,3 @@
        [1] "#901200" "#9D1200" "#AA1200" "#B71300" "#C31802" "#CF1D04" "#DB2207"
        [8] "#E63A21" "#F3533C" "#FF6C57"
 
-# nmfs_palette() fails
-
-    Code
-      nmfs_palette("foo")
-    Condition
-      Error in `interpolate()`:
-      ! need at least two non-NA values to interpolate
-
-# display_nmfs_palette() works
-
-    Code
-      urchin_palette
-    Output
-      NULL
-

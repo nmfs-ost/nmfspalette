@@ -354,23 +354,32 @@ nmfs_palette <- function(palette = "oceans", reverse = FALSE, ...) {
 #'
 #' @param name Character name of palette in nmfs_palettes.
 #' @param n Number of colors in palette.
-#' @param ... Additional arguments to pass to [graphics::image()].
 #' @examples
 #' display_nmfs_palette("oceans", 10)
 #' @export
-display_nmfs_palette <- function(name, n, ...) {
+display_nmfs_palette <- function(name, n) {
   pal <- nmfs_palette(name)(n)
-  graphics::image(
-    1:n,
-    1,
-    as.matrix(1:n),
-    col = pal,
-    xlab = paste(name),
-    ylab = "",
-    xaxt = "n",
-    yaxt = "n",
-    bty = "n",
-    ...
+  df <- data.frame(
+    x = 1,
+    y = seq_along(pal),
+    color = pal
   )
-  graphics::box()
+
+  ggplot2::ggplot(df,
+                  ggplot2::aes(x = y,
+                               y = x,
+                               fill = color)) +
+    ggplot2::geom_tile() +
+    ggplot2::scale_fill_identity() +
+    ggplot2::coord_fixed(ratio = 1) +
+    ggplot2::theme_void() +
+    ggplot2::labs(title = name) +
+    ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5,
+                                    vjust = 1,
+                                    size = 14,
+                                    face = "bold"),
+          plot.margin = ggplot2::unit(c(1,1,1,1), "cm"))
+
 }
+
+
