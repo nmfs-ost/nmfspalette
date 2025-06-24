@@ -376,10 +376,33 @@ display_nmfs_palette <- function(name, n) {
     ggplot2::labs(title = name) +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5,
                                     vjust = 1,
-                                    size = 14,
+                                    size = 12,
                                     face = "bold"),
-          plot.margin = ggplot2::unit(c(1,1,1,1), "cm"))
+                  plot.margin = ggplot2::unit(c(1,1,1,1), "cm"))
+ # plot.margin = ggplot2::unit(c(2,2,2,2), "cm"))
 
 }
 
+#' Return function that shows all nmfs color palettes
+#'
+#' @examples
+#' all_nmfs_palettes()
+#' @export
+all_nmfs_palettes <- function() {
 
+  # default setting
+  old_par <- par(mar = c(0,6,0,0))
+
+  # reset par to original setting
+  on.exit(par(old_par))
+
+    do.call(
+      pals::pal.bands,
+      c(nmfs_palettes,
+        list(labels = names(nmfs_palettes),
+             gap = 0.1,
+             show.names = FALSE)
+        )
+    )
+
+}
