@@ -61,7 +61,15 @@ nmfs_palette("oceans")(10)
 
 ## Palettes
 
-To see the palettes, use the `display_nmfs_palette()` function.
+Use the `all_nmfs_palettes()` function to see all available palettes.
+
+``` r
+all_nmfs_palettes()
+```
+
+<img src="man/figures/README-all_pals-1.png" width="100%" />
+
+Use the `display_nmfs_palette()` function to see a specific palette.
 
 ### Main NOAA Fisheries palettes
 
