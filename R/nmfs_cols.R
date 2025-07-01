@@ -350,27 +350,62 @@ nmfs_palette <- function(palette = "oceans", reverse = FALSE, ...) {
   grDevices::colorRampPalette(pal, ...)
 }
 
-#' Return function to interpolate a nmfs color palette
+#' Return interpolated nmfs color palette
 #'
 #' @param name Character name of palette in nmfs_palettes.
 #' @param n Number of colors in palette.
-#' @param ... Additional arguments to pass to [graphics::image()].
 #' @examples
 #' display_nmfs_palette("oceans", 10)
+#' @return A list object showing a specific nmfs color palette in the plot window.
 #' @export
-display_nmfs_palette <- function(name, n, ...) {
+display_nmfs_palette <- function(name, n) {
   pal <- nmfs_palette(name)(n)
-  graphics::image(
-    1:n,
-    1,
-    as.matrix(1:n),
-    col = pal,
-    xlab = paste(name),
-    ylab = "",
-    xaxt = "n",
-    yaxt = "n",
-    bty = "n",
-    ...
+  df <- data.frame(
+    x = 1,
+    y = seq_along(pal),
+    color = pal
   )
-  graphics::box()
+
+  ggplot2::ggplot(df,
+                  ggplot2::aes(x = y,
+                               y = x,
+                               fill = color)) +
+    ggplot2::geom_tile() +
+    ggplot2::scale_fill_identity() +
+    ggplot2::coord_fixed(ratio = 1) +
+    ggplot2::theme_void() +
+    ggplot2::labs(title = name) +
+    ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5,
+                                    vjust = 1,
+                                    size = 12,
+                                    face = "bold"),
+                  plot.margin = ggplot2::unit(c(1,1,1,1), "cm"))
+ # plot.margin = ggplot2::unit(c(2,2,2,2), "cm"))
+
+}
+
+#' Return function that shows all nmfs color palettes
+#'
+#' @examples
+#' all_nmfs_palettes()
+#'
+#' @return A null object showing all nmfs color palettes in the plot window.
+#' @export
+all_nmfs_palettes <- function() {
+
+  # default setting
+  old_par <- par(mar = c(0,6,0,0))
+
+  # reset par to original setting
+  on.exit(par(old_par))
+
+    do.call(
+      pals::pal.bands,
+      c(nmfs_palettes,
+        list(labels = names(nmfs_palettes),
+             gap = 0.1,
+             show.names = FALSE)
+        )
+    )
+
 }

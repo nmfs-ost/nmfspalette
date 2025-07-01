@@ -17,6 +17,7 @@ BugReports: https://github.com/nmfs-ost/nmfspalette/issues
 Imports: 
     cli,
     ggplot2,
+    pals,
     rlang
 Suggests: 
     dichromat,

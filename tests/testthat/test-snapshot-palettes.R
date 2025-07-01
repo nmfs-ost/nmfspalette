@@ -14,22 +14,20 @@ test_that("nmfs_palette() works", {
   )
 })
 
+# Check that fake palette names create an error
 test_that("nmfs_palette() fails", {
-  # Check that fake palette names create an error
-  expect_snapshot(
-    error = TRUE,
-    nmfs_palette("foo")
-  )
+  expect_error(nmfs_palette("foo"))
+
+  expect_error(nmfs_palette("foo"),
+                 "need at least two non-NA values to interpolate")
 })
 
 test_that("display_nmfs_palette() works", {
   # Check that display_nmfs_palette returns a function
   urchin_palette <- display_nmfs_palette("urchin", 4)
 
-  expect_type(urchin_palette, "NULL")
+  expect_type(urchin_palette, "list")
 
   # Check that display_nmfs_palette() returns a snapshot
-  expect_snapshot(
-    urchin_palette
-  )
+  expect_snapshot(urchin_palette$data)
 })
