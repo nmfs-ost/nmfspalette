@@ -61,7 +61,6 @@ test_that("scale_fill works with discrete = TRUE and interpolate = FALSE", {
 })
 
 test_that("warning triggered if palette is too small to use", {
-
   expect_warning(
     ggplot(mpg, aes(x = model, y = displ, color = manufacturer)) +
       geom_point() +

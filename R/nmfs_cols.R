@@ -366,22 +366,29 @@ display_nmfs_palette <- function(name, n) {
     color = pal
   )
 
-  ggplot2::ggplot(df,
-                  ggplot2::aes(x = y,
-                               y = x,
-                               fill = color)) +
+  ggplot2::ggplot(
+    df,
+    ggplot2::aes(
+      x = y,
+      y = x,
+      fill = color
+    )
+  ) +
     ggplot2::geom_tile() +
     ggplot2::scale_fill_identity() +
     ggplot2::coord_fixed(ratio = 1) +
     ggplot2::theme_void() +
     ggplot2::labs(title = name) +
-    ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5,
-                                    vjust = 1,
-                                    size = 12,
-                                    face = "bold"),
-                  plot.margin = ggplot2::unit(c(1,1,1,1), "cm"))
- # plot.margin = ggplot2::unit(c(2,2,2,2), "cm"))
-
+    ggplot2::theme(
+      plot.title = ggplot2::element_text(
+        hjust = 0.5,
+        vjust = 1,
+        size = 12,
+        face = "bold"
+      ),
+      plot.margin = ggplot2::unit(c(1, 1, 1, 1), "cm")
+    )
+  # plot.margin = ggplot2::unit(c(2,2,2,2), "cm"))
 }
 
 #' Return function that shows all nmfs color palettes
@@ -392,20 +399,21 @@ display_nmfs_palette <- function(name, n) {
 #' @return A null object showing all nmfs color palettes in the plot window.
 #' @export
 all_nmfs_palettes <- function() {
-
   # default setting
-  old_par <- par(mar = c(0,6,0,0))
+  old_par <- par(mar = c(0, 6, 0, 0))
 
   # reset par to original setting
   on.exit(par(old_par))
 
-    do.call(
-      pals::pal.bands,
-      c(nmfs_palettes,
-        list(labels = names(nmfs_palettes),
-             gap = 0.1,
-             show.names = FALSE)
-        )
+  do.call(
+    pals::pal.bands,
+    c(
+      nmfs_palettes,
+      list(
+        labels = names(nmfs_palettes),
+        gap = 0.1,
+        show.names = FALSE
+      )
     )
-
+  )
 }

@@ -18,8 +18,10 @@ test_that("nmfs_palette() works", {
 test_that("nmfs_palette() fails", {
   expect_error(nmfs_palette("foo"))
 
-  expect_error(nmfs_palette("foo"),
-                 "need at least two non-NA values to interpolate")
+  expect_error(
+    nmfs_palette("foo"),
+    "need at least two non-NA values to interpolate"
+  )
 })
 
 test_that("display_nmfs_palette() works", {
