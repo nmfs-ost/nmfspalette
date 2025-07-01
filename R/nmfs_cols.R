@@ -350,12 +350,13 @@ nmfs_palette <- function(palette = "oceans", reverse = FALSE, ...) {
   grDevices::colorRampPalette(pal, ...)
 }
 
-#' Return function to interpolate a nmfs color palette
+#' Return interpolated nmfs color palette
 #'
 #' @param name Character name of palette in nmfs_palettes.
 #' @param n Number of colors in palette.
 #' @examples
 #' display_nmfs_palette("oceans", 10)
+#' @return A list object showing a specific nmfs color palette in the plot window.
 #' @export
 display_nmfs_palette <- function(name, n) {
   pal <- nmfs_palette(name)(n)
@@ -387,6 +388,8 @@ display_nmfs_palette <- function(name, n) {
 #'
 #' @examples
 #' all_nmfs_palettes()
+#'
+#' @return A null object showing all nmfs color palettes in the plot window.
 #' @export
 all_nmfs_palettes <- function() {
 

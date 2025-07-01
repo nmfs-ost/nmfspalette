@@ -6,9 +6,13 @@
 \usage{
 all_nmfs_palettes()
 }
+\value{
+A null object showing all nmfs color palettes in the plot window.
+}
 \description{
 Return function that shows all nmfs color palettes
 }
 \examples{
 all_nmfs_palettes()
+
 }

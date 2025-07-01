@@ -2,7 +2,7 @@
 % Please edit documentation in R/nmfs_cols.R
 \name{display_nmfs_palette}
 \alias{display_nmfs_palette}
-\title{Return function to interpolate a nmfs color palette}
+\title{Return interpolated nmfs color palette}
 \usage{
 display_nmfs_palette(name, n)
 }
@@ -11,8 +11,11 @@ display_nmfs_palette(name, n)
 
 \item{n}{Number of colors in palette.}
 }
+\value{
+A list object showing a specific nmfs color palette in the plot window.
+}
 \description{
-Return function to interpolate a nmfs color palette
+Return interpolated nmfs color palette
 }
 \examples{
 display_nmfs_palette("oceans", 10)
