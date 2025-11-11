@@ -146,8 +146,37 @@ theme_nmfs <- function(
   
   pal_length <- length(nmfs_palettes[[palette]])
   
+  base_theme1 <- ggplot2::theme_bw(
+    base_size = base_size,
+    ink = ink,
+    paper = paper,
+    accent = accent,
+    ...
+  )
+  
+  base_theme2 <- ggplot2::theme(
+    axis.line = element_line(color = "black",
+                             linewidth = 0.75),
+    axis.text.x = element_text(size = lab_size, 
+                               color = "black"),
+    axis.text.y = element_text(size = lab_size, 
+                               color = "black"),
+    panel.border = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    ...
+  )
+  
   if (discrete) {
     if (interpolate) {
+      
+      # base_theme1 +
+      # base_theme2 +
+      # ggplot2::theme(
+      #     palette.color.continuous = nmfs_palette(palette)(pal_length),
+      #     palette.fill.continuous = nmfs_palette(palette)(pal_length)
+      #   )
+      
       # ggplot2::theme(
       #   palette.fill.discrete = ggplot2::discrete_scale(
       #     aesthetics = "fill",
@@ -163,34 +192,20 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
         .frequency = "once",
         .frequency_id = "too_few_colors_warning_fill"
       )
-      # ggplot2::theme(
-      #   palette.fill.continuous = ggplot2::scale_fill_manual(
-      #     values = nmfs_palette(palette)(pal_length)#,
-      #   #  ...
-      #  )
-      # )
+      
+      base_theme1 +
+      base_theme2 +
+        ggplot2::theme(
+          palette.colour.discrete = nmfs_palette(palette)(pal_length),
+          palette.fill.discrete = nmfs_palette(palette)(pal_length)
+        )
     }
   } else {
-    ggplot2::theme_bw(
-        base_size = base_size,
-        ink = ink,
-        paper = paper,
-        accent = accent,
-        ...
-    ) +
+    base_theme1 +
+    base_theme2 +
     ggplot2::theme(
       palette.color.continuous = nmfs_palette(palette)(pal_length),
-      palette.fill.continuous = nmfs_palette(palette)(pal_length),
-      axis.line = element_line(color = "black",
-                               linewidth = 0.75),
-      axis.text.x = element_text(size = lab_size, 
-                                 color = "black"),
-      axis.text.y = element_text(size = lab_size, 
-                                 color = "black"),
-      panel.border = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      ...
+      palette.fill.continuous = nmfs_palette(palette)(pal_length)
     )
   }
 
