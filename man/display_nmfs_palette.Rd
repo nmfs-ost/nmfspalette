@@ -12,7 +12,7 @@ display_nmfs_palette(name, n)
 \item{n}{Number of colors in palette.}
 }
 \value{
-A list object showing a specific nmfs color palette in the plot window.
+An object showing a specific nmfs color palette in the plot window.
 }
 \description{
 Return interpolated nmfs color palette

@@ -51,7 +51,7 @@ and \code{interpolate} is TRUE; and \code{\link[ggplot2:scale_manual]{ggplot2::s
 is FALSE and \code{interpolate} is FALSE.}
 }
 \value{
-A theme that applies nmfs color palettes and theme-related elements (such as label sizes, borders, axis lines, and more) to a plot.
+A theme that applies nmfs color palettes and theme-related elements (such as label sizes, borders, axis lines, and more) to a plot. For more information about the ggplot2 advances that enabled this function, check out the \href{https://tidyverse.org/blog/2025/09/ggplot2-4-0-0/}{ggplot2 version 4.0.0 release notes}.
 }
 \description{
 Create theme for nmfs colors

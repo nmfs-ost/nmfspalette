@@ -132,7 +132,7 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
 #' when `discrete` is TRUE; [ggplot2::discrete_scale()] when `discrete` is FALSE
 #' and `interpolate` is TRUE; and [ggplot2::scale_fill_manual()] when `discrete`
 #' is FALSE and `interpolate` is FALSE.
-#' @return A theme that applies nmfs color palettes and theme-related elements (such as label sizes, borders, axis lines, and more) to a plot.
+#' @return A theme that applies nmfs color palettes and theme-related elements (such as label sizes, borders, axis lines, and more) to a plot. For more information about the ggplot2 advances that enabled this function, check out the [ggplot2 version 4.0.0 release notes](https://tidyverse.org/blog/2025/09/ggplot2-4-0-0/).
 #' @examples
 #' library(ggplot2)
 #' ggplot(mtcars, aes(x = mpg, y = disp, color = as.factor(cyl))) +
