@@ -25,10 +25,10 @@ test_that("nmfs_palette() fails", {
 })
 
 test_that("display_nmfs_palette() works", {
-  # Check that display_nmfs_palette returns a function
+  # Check that display_nmfs_palette returns an object
   urchin_palette <- display_nmfs_palette("urchin", 4)
 
-  expect_type(urchin_palette, "list")
+  expect_type(urchin_palette, "object")
 
   # Check that display_nmfs_palette() returns a snapshot
   expect_snapshot(urchin_palette$data)

@@ -356,7 +356,7 @@ nmfs_palette <- function(palette = "oceans", reverse = FALSE, ...) {
 #' @param n Number of colors in palette.
 #' @examples
 #' display_nmfs_palette("oceans", 10)
-#' @return A list object showing a specific nmfs color palette in the plot window.
+#' @return An object showing a specific nmfs color palette in the plot window.
 #' @export
 display_nmfs_palette <- function(name, n) {
   pal <- nmfs_palette(name)(n)
