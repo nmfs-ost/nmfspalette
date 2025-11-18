@@ -119,15 +119,31 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
 
 #' Create theme for nmfs colors
 #' @inheritParams scale_color_nmfs
+#' @param base_size The base font size, as defined in the
+#'   \code{\link[ggplot2]{theme_gray}} function
+#' @param lab_size The axis text size
+#' @param ink The plot foreground color, as defined in the
+#'   \code{\link[ggplot2]{theme_gray}} function
+#' @param paper The plot background color, as defined in the
+#'   \code{\link[ggplot2]{theme_gray}} function
+#' @param accent The plot's accented elements' color, as defined in the
+#'   \code{\link[ggplot2]{theme_gray}} function
 #' @param ... Additional arguments passed to: [ggplot2::scale_fill_gradientn()]
 #' when `discrete` is TRUE; [ggplot2::discrete_scale()] when `discrete` is FALSE
 #' and `interpolate` is TRUE; and [ggplot2::scale_fill_manual()] when `discrete`
 #' is FALSE and `interpolate` is FALSE.
+#' @return A theme that applies nmfs color palettes and theme-related elements (such as label sizes, borders, axis lines, and more) to a plot.
 #' @examples
 #' library(ggplot2)
-# ggplot(Orange, aes(x = Tree, y = age, color = age)) +
-#   geom_point(size = 3) +
-#   theme_nmfs(discrete = FALSE, palette = "urchin") 
+#' ggplot(mtcars, aes(x = mpg, y = disp, color = as.factor(cyl))) +
+#'   geom_point(size = 3) +
+#'   theme_nmfs(discrete = TRUE, interpolate = TRUE, palette = "crustacean")
+#' ggplot(mtcars, aes(x = mpg, y = disp, color = as.factor(cyl))) +
+#'   geom_point(size = 3) +
+#'   theme_nmfs(discrete = TRUE, interpolate = FALSE, palette = "crustacean")
+#' ggplot(mtcars, aes(x = mpg, y = disp, fill = hp)) +
+#' geom_point(size = 3, shape = 24) +
+#' theme_nmfs(discrete = FALSE, interpolate = TRUE, palette = "seagrass")
 #' @export
 theme_nmfs <- function(
     palette = "oceans", 
@@ -140,6 +156,12 @@ theme_nmfs <- function(
     paper = "white",
     accent = "#003087",
     ...) {
+  rlang::warn(
+    message = "This function may not work if your `ggplot2` version is below 4.0.0. Update your package version to utilize this new function!",
+    .frequency = "once",
+    .frequency_id = "ggplot2_version_warning"
+  )
+  
   # get palette
   pal <- nmfs_palette(palette = palette,
                       reverse = reverse)
@@ -170,20 +192,13 @@ theme_nmfs <- function(
   if (discrete) {
     if (interpolate) {
       
-      # base_theme1 +
-      # base_theme2 +
-      # ggplot2::theme(
-      #     palette.color.continuous = nmfs_palette(palette)(pal_length),
-      #     palette.fill.continuous = nmfs_palette(palette)(pal_length)
-      #   )
-      
-      # ggplot2::theme(
-      #   palette.fill.discrete = ggplot2::discrete_scale(
-      #     aesthetics = "fill",
-      #     palette = pal#,
-      # #    ...
-      #   )
-      # )
+      base_theme1 +
+      base_theme2 +
+      ggplot2::theme(
+         palette.colour.discrete = pal,
+         palette.fill.discrete = pal
+        )
+
     } else {
       cli::cli_alert_info("The {palette} palette has {pal_length} colors.")
       rlang::warn(
@@ -208,6 +223,4 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
       palette.fill.continuous = nmfs_palette(palette)(pal_length)
     )
   }
-
 }
-
