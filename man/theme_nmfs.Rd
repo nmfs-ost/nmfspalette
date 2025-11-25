@@ -65,6 +65,6 @@ ggplot(mtcars, aes(x = mpg, y = disp, color = as.factor(cyl))) +
   geom_point(size = 3) +
   theme_nmfs(discrete = TRUE, interpolate = FALSE, palette = "crustacean")
 ggplot(mtcars, aes(x = mpg, y = disp, fill = hp)) +
-geom_point(size = 3, shape = 24) +
-theme_nmfs(discrete = FALSE, interpolate = TRUE, palette = "seagrass")
+  geom_point(size = 3, shape = 24) +
+  theme_nmfs(discrete = FALSE, interpolate = TRUE, palette = "seagrass")
 }

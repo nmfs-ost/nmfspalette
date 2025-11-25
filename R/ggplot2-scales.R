@@ -27,11 +27,12 @@
 #'   )
 #' @export
 scale_color_nmfs <- function(
-    palette = "oceans",
-    discrete = TRUE,
-    reverse = FALSE,
-    interpolate = TRUE,
-    ...) {
+  palette = "oceans",
+  discrete = TRUE,
+  reverse = FALSE,
+  interpolate = TRUE,
+  ...
+) {
   pal <- nmfs_palette(palette = palette, reverse = reverse)
 
   pal_length <- length(nmfs_palettes[[palette]])
@@ -82,11 +83,12 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
 #'   )
 #' @export
 scale_fill_nmfs <- function(
-    palette = "oceans",
-    discrete = TRUE,
-    reverse = FALSE,
-    interpolate = TRUE,
-    ...) {
+  palette = "oceans",
+  discrete = TRUE,
+  reverse = FALSE,
+  interpolate = TRUE,
+  ...
+) {
   pal <- nmfs_palette(palette = palette, reverse = reverse)
 
   pal_length <- length(nmfs_palettes[[palette]])
@@ -142,35 +144,38 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
 #'   geom_point(size = 3) +
 #'   theme_nmfs(discrete = TRUE, interpolate = FALSE, palette = "crustacean")
 #' ggplot(mtcars, aes(x = mpg, y = disp, fill = hp)) +
-#' geom_point(size = 3, shape = 24) +
-#' theme_nmfs(discrete = FALSE, interpolate = TRUE, palette = "seagrass")
+#'   geom_point(size = 3, shape = 24) +
+#'   theme_nmfs(discrete = FALSE, interpolate = TRUE, palette = "seagrass")
 #' @export
 theme_nmfs <- function(
-    palette = "oceans", 
-    discrete = TRUE,
-    reverse = FALSE,
-    interpolate = TRUE,
-    base_size = 14,
-    lab_size = 12,
-    ink = "black",
-    paper = "white",
-    accent = "#003087",
-    ...) {
-  if (utils::packageVersion("ggplot2") < "4.0.0"){
+  palette = "oceans",
+  discrete = TRUE,
+  reverse = FALSE,
+  interpolate = TRUE,
+  base_size = 14,
+  lab_size = 12,
+  ink = "black",
+  paper = "white",
+  accent = "#003087",
+  ...
+) {
+  if (utils::packageVersion("ggplot2") < "4.0.0") {
     rlang::warn(
       message = paste0("Your `ggplot2` version is ", utils::packageVersion("ggplot2"), ", which is older than the version required to use `theme_nmfs()` (4.0.0). Update your `ggplot2` package to use this new function!"),
       .frequency = "once",
       .frequency_id = "ggplot2_version_warning"
-    )    
+    )
   }
 
-  
+
   # get palette
-  pal <- nmfs_palette(palette = palette,
-                      reverse = reverse)
-  
+  pal <- nmfs_palette(
+    palette = palette,
+    reverse = reverse
+  )
+
   pal_length <- length(nmfs_palettes[[palette]])
-  
+
   base_theme1 <- ggplot2::theme_bw(
     base_size = base_size,
     ink = ink,
@@ -178,30 +183,34 @@ theme_nmfs <- function(
     accent = accent,
     ...
   )
-  
+
   base_theme2 <- ggplot2::theme(
-    axis.line = element_line(color = "black",
-                             linewidth = 0.75),
-    axis.text.x = element_text(size = lab_size, 
-                               color = "black"),
-    axis.text.y = element_text(size = lab_size, 
-                               color = "black"),
+    axis.line = element_line(
+      color = "black",
+      linewidth = 0.75
+    ),
+    axis.text.x = element_text(
+      size = lab_size,
+      color = "black"
+    ),
+    axis.text.y = element_text(
+      size = lab_size,
+      color = "black"
+    ),
     panel.border = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     ...
   )
-  
+
   if (discrete) {
     if (interpolate) {
-      
       base_theme1 +
-      base_theme2 +
-      ggplot2::theme(
-         palette.colour.discrete = pal,
-         palette.fill.discrete = pal
+        base_theme2 +
+        ggplot2::theme(
+          palette.colour.discrete = pal,
+          palette.fill.discrete = pal
         )
-
     } else {
       cli::cli_alert_info("The {palette} palette has {pal_length} colors.")
       rlang::warn(
@@ -210,9 +219,9 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
         .frequency = "once",
         .frequency_id = "too_few_colors_warning_fill"
       )
-      
+
       base_theme1 +
-      base_theme2 +
+        base_theme2 +
         ggplot2::theme(
           palette.colour.discrete = nmfs_palette(palette)(pal_length),
           palette.fill.discrete = nmfs_palette(palette)(pal_length)
@@ -220,10 +229,10 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
     }
   } else {
     base_theme1 +
-    base_theme2 +
-    ggplot2::theme(
-      palette.color.continuous = nmfs_palette(palette)(pal_length),
-      palette.fill.continuous = nmfs_palette(palette)(pal_length)
-    )
+      base_theme2 +
+      ggplot2::theme(
+        palette.color.continuous = nmfs_palette(palette)(pal_length),
+        palette.fill.continuous = nmfs_palette(palette)(pal_length)
+      )
   }
 }

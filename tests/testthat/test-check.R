@@ -66,8 +66,7 @@ test_that("scale_fill works", {
 test_that("theme_nmfs returns a ggplot2 theme object", {
   theme_default <- suppressWarnings(theme_nmfs())
   expect_s3_class(theme_default, "theme")
-  
+
   theme_continuous <- suppressWarnings(theme_nmfs(discrete = FALSE))
   expect_s3_class(theme_continuous, "theme")
 })
-
