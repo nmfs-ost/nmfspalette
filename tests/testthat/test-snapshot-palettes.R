@@ -27,26 +27,25 @@ test_that("nmfs_palette() fails", {
 test_that("display_nmfs_palette() works", {
   # Check that display_nmfs_palette returns an object
   urchin_palette <- display_nmfs_palette("urchin", 4)
-  
+
   expect_type(urchin_palette, "object")
-  
+
   # Check that display_nmfs_palette() returns a snapshot
   expect_snapshot(urchin_palette$data)
 })
 
 test_that("nmfs_theme() works", {
-  
   expect_snapshot(
     theme_nmfs(palette = "urchin", discrete = FALSE)
   )
-  
+
   expect_snapshot(
     theme_nmfs(palette = "crustacean", discrete = TRUE, interpolate = TRUE),
     cnd_class = TRUE
   )
-  
+
   expect_snapshot(
     theme_nmfs(palette = "oceans", discrete = TRUE, interpolate = FALSE),
-     cnd_class = TRUE
+    cnd_class = TRUE
   )
- })
+})
