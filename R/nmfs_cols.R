@@ -400,10 +400,10 @@ display_nmfs_palette <- function(name, n) {
 #' @export
 all_nmfs_palettes <- function() {
   # default setting
-  old_par <- par(mar = c(0, 6, 0, 0))
+  old_par <- graphics::par(mar = c(0, 6, 0, 0))
 
   # reset par to original setting
-  on.exit(par(old_par))
+  on.exit(graphics::par(old_par))
 
   do.call(
     pals::pal.bands,

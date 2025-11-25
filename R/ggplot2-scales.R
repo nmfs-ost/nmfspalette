@@ -120,14 +120,14 @@ To avoid this error, use a larger palette or `interpolate = TRUE`.",
 #' Create theme for nmfs colors
 #' @inheritParams scale_color_nmfs
 #' @param base_size The base font size, as defined in the
-#'   \code{\link[ggplot2]{theme_gray}} function
+#'   [ggplot2::theme_gray()] function
 #' @param lab_size The axis text size
 #' @param ink The plot foreground color, as defined in the
-#'   \code{\link[ggplot2]{theme_gray}} function
+#'   [ggplot2::theme_gray()] function
 #' @param paper The plot background color, as defined in the
-#'   \code{\link[ggplot2]{theme_gray}} function
+#'   [ggplot2::theme_gray()] function
 #' @param accent The plot's accented elements' color, as defined in the
-#'   \code{\link[ggplot2]{theme_gray}} function
+#'   [ggplot2::theme_gray()] function
 #' @param ... Additional arguments passed to: [ggplot2::scale_fill_gradientn()]
 #' when `discrete` is TRUE; [ggplot2::discrete_scale()] when `discrete` is FALSE
 #' and `interpolate` is TRUE; and [ggplot2::scale_fill_manual()] when `discrete`
@@ -156,11 +156,14 @@ theme_nmfs <- function(
     paper = "white",
     accent = "#003087",
     ...) {
-  rlang::warn(
-    message = "This function may not work if your `ggplot2` version is below 4.0.0. Update your package version to utilize this new function!",
-    .frequency = "once",
-    .frequency_id = "ggplot2_version_warning"
-  )
+  if (utils::packageVersion("ggplot2") < "4.0.0"){
+    rlang::warn(
+      message = paste0("Your `ggplot2` version is ", utils::packageVersion("ggplot2"), ", which is older than the version required to use `theme_nmfs()` (4.0.0). Update your `ggplot2` package to use this new function!"),
+      .frequency = "once",
+      .frequency_id = "ggplot2_version_warning"
+    )    
+  }
+
   
   # get palette
   pal <- nmfs_palette(palette = palette,

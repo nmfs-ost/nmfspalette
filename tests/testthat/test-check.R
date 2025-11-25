@@ -63,7 +63,7 @@ test_that("scale_fill works", {
   expect_true(is_ggplot(i))
 })
 
-test_that("theme_nmfs returns a ggplot2 theme object and triggers initial warning", {
+test_that("theme_nmfs returns a ggplot2 theme object", {
   theme_default <- suppressWarnings(theme_nmfs())
   expect_s3_class(theme_default, "theme")
   

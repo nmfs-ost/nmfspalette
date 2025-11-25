@@ -32,18 +32,18 @@ objects should interpolated from palettes, with the alternative that only the
 defined colors in the palette are used. Default is TRUE.}
 
 \item{base_size}{The base font size, as defined in the
-\code{\link[ggplot2]{theme_gray}} function}
+\code{\link[ggplot2:ggtheme]{ggplot2::theme_gray()}} function}
 
 \item{lab_size}{The axis text size}
 
 \item{ink}{The plot foreground color, as defined in the
-\code{\link[ggplot2]{theme_gray}} function}
+\code{\link[ggplot2:ggtheme]{ggplot2::theme_gray()}} function}
 
 \item{paper}{The plot background color, as defined in the
-\code{\link[ggplot2]{theme_gray}} function}
+\code{\link[ggplot2:ggtheme]{ggplot2::theme_gray()}} function}
 
 \item{accent}{The plot's accented elements' color, as defined in the
-\code{\link[ggplot2]{theme_gray}} function}
+\code{\link[ggplot2:ggtheme]{ggplot2::theme_gray()}} function}
 
 \item{...}{Additional arguments passed to: \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}
 when \code{discrete} is TRUE; \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} when \code{discrete} is FALSE
