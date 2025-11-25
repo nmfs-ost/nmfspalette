@@ -356,7 +356,7 @@ nmfs_palette <- function(palette = "oceans", reverse = FALSE, ...) {
 #' @param n Number of colors in palette.
 #' @examples
 #' display_nmfs_palette("oceans", 10)
-#' @return A list object showing a specific nmfs color palette in the plot window.
+#' @return An object showing a specific nmfs color palette in the plot window.
 #' @export
 display_nmfs_palette <- function(name, n) {
   pal <- nmfs_palette(name)(n)
@@ -400,10 +400,10 @@ display_nmfs_palette <- function(name, n) {
 #' @export
 all_nmfs_palettes <- function() {
   # default setting
-  old_par <- par(mar = c(0, 6, 0, 0))
+  old_par <- graphics::par(mar = c(0, 6, 0, 0))
 
   # reset par to original setting
-  on.exit(par(old_par))
+  on.exit(graphics::par(old_par))
 
   do.call(
     pals::pal.bands,

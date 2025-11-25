@@ -1,6 +1,6 @@
 Package: nmfspalette
 Title: A Color Palette for NOAA Fisheries
-Version: 3.2.0.000
+Version: 3.3.0.000
 Authors@R: c(
     person("Christine", "Stawitz", , "christine.stawitz@noaa.gov", role = "aut"),
     person("Bai", "Li", , "bai.li@noaa.gov", role = "aut"),
@@ -17,8 +17,10 @@ BugReports: https://github.com/nmfs-ost/nmfspalette/issues
 Imports: 
     cli,
     ggplot2,
+    graphics,
     pals,
-    rlang
+    rlang,
+    utils
 Suggests: 
     dichromat,
     dplyr,
@@ -36,4 +38,4 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

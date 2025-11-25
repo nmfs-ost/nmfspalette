@@ -61,6 +61,20 @@ You can change the number of colors (10 shown below).
 nmfs_palette("oceans")(10)
 ```
 
+## Theme for `ggplot` objects
+
+**New feature**: With the new `theme_nmfs()` function, you can add a NMFS-colored theme to your `ggplot` objects!
+This new theme that applies NMFS color palettes and theme-related elements (such as label sizes, borders, axis lines, and more) to a plot.
+
+```{r}
+#| label: theme_example
+
+library(ggplot2)
+ggplot(mtcars, aes(x = mpg, y = disp, color = as.factor(cyl))) +
+  geom_point(size = 3) +
+  nmfspalette::theme_nmfs(discrete = TRUE, interpolate = TRUE, palette = "crustacean")
+```
+
 ## Palettes
 
 Use the `all_nmfs_palettes()` function to see all available palettes.
